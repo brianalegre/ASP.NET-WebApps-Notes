@@ -1,0 +1,65 @@
+@page
+@model IndexModel
+
+<!-- Write your code block below -->
+@{
+    string firstName = "Brian";
+    int age = 34;
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <br>
+    <h2 class="user-info">My name is @firstName and I am @age years old!</h2>
+</div>
+
+
+@*
+
+    Writing C# in a Razor Page
+    All C# expressions are preceded with the character “@“. For example:
+
+    <h1>@DateTime.Now.ToShortDateString()</h1>
+    If your C# code needs spaces, then it must be wrapped in parentheses:
+
+    <p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
+    We can use code blocks:
+
+    @{ // C# code }
+    if our code exceeds one line or we want to declare variables.
+
+    @{
+    int num1 = 6;
+    int num2 = 4;
+    int result = num1 + num2;
+    }
+
+    <h3> The result of @num1 + @num2 is: @result</h3>
+    Result:
+
+    <h3> The result of 6 + 4 is: 10</h3>
+    Instructions
+    1.
+    Open a code block below @model IndexModel so that we can start writing C# code in them.
+
+    Checkpoint 2 Passed
+
+    Stuck? Get a hint
+    2.
+    Within your code block, start by creating a string variable named firstName and assign it to your first name.
+
+    Checkpoint 3 Passed
+
+    Stuck? Get a hint
+    3.
+    Let’s now create an int variable named age and assign it your age.
+
+    Checkpoint 4 Passed
+
+    Stuck? Get a hint
+    4.
+    Now that we have a few assigned variables, let’s display their values on the page! Fill out our header describing your
+    name and age.
+
+*@

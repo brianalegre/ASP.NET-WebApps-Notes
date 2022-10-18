@@ -1,0 +1,39 @@
+@page
+<!-- Add the page directive above this line -->
+
+<div class="text-center">
+    <h2>Hey there! My name is:</h2>
+
+    <!--   Insert a header with your name below -->
+    <h1> Brian </h1>
+
+    <br>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+
+
+@* Structure of a Razor View Page
+    So how does a view page in a Razor app work? In order for a file to behave as a Razor view page, the first line in the
+    file must be @page. The @page directive indicates that the file is a Razor Page and the ASP.NET compiler will treat it
+    as such. This means that we can now write C# code in our view page and HTML markup.
+
+    When a user navigates to a web page, the web browser submits a “request” to the web server to return the contents of the
+    web page so that it can display it to the user. That request is handled by Razor Pages, and specifically, the Razor
+    engine that looks at the view file (.cshtml) of the specific page the user wishes to see and produces the HTML content
+    based on the code implemented in that view.
+
+    In order for the Razor engine to interpret code as C# instead of HTML, we must prepend the keyword with the “@“ symbol,
+    otherwise, it will read the code as HTML. We’ll look at a few different ways we can write C# in our view page in the
+    next exercise.
+
+    Instructions
+    1.
+    Add the @page directive on the first line so our file will be read as a Razor view page.
+
+    Checkpoint 2 Passed
+
+    Stuck? Get a hint
+    2.
+    Add an HTML <h1> header with your name on it to display HTML content. *@
