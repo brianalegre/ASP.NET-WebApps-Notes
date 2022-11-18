@@ -1,0 +1,33 @@
+@page
+@model IndexModel
+@{
+  ViewData["Title"] = "Home page";
+  string grade = "A";
+}
+
+<div class="text-center">
+  <h1 class="display-5">Let's work with conditionals!</h1>
+  <hr>
+
+  <h3>Exam results:</h3>
+  <br>
+  <!--   Switch statement below -->
+  @switch (grade)
+{
+  case "A": <h4>Excellent job!</h4>
+  break;
+  case "B": <h4>Well done!</h4>
+  break;
+  case "C": <h4>Needs some work!</h4>
+  break;
+  case "D": <h4>You passed</h4>
+  break;
+  case "F": <h4>You failed, better try next time</h4>
+  break;
+  default: <h4>Invalid grade!</h4>
+  break;
+}
+  
+  <h4>Your grade is, @grade</h4>
+  
+</div>
