@@ -13,22 +13,27 @@ namespace starting_app.Pages
         {
             Dictionary<string, double> PizzaCost = new Dictionary<string, double>()
       {
-        { "Cheese", 10.00 },
-        { "Pepperoni", 11.00 },
-        { "Vegetarian", 12.00 },
+        { "Cheese", 10 },
+        { "Pepperoni", 11 },
+        { "Vegetarian", 12 },
       };
 
             return PizzaCost[pizzaType];
         }
 
+        public double Total { get; set; }
+
+        // Create the Missing Properties
+        // With Getter and Setters
         public string Customer { get; set; }
         public string Order { get; set; }
         public bool ExtraCheese { get; set; }
-        public double Total { get; set; }
 
         public void OnGet()
         {
-            Customer = "John Doe";
+
+            // Assign Default Vales
+            Customer = "Brian";
             Order = "Cheese";
             ExtraCheese = false;
             Total = PizzaTotal("Cheese");
