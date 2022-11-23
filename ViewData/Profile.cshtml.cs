@@ -11,11 +11,15 @@ namespace MyApp.Namespace
     {
         public void OnGet()
         {
-            ViewData["myName"] = "John Doe";
-            ViewData["username"] = "John123";
-            ViewData["myOccupation"] = "Codecademy Student";
-            ViewData["myAge"] = 24;
-            ViewData["currentDate"] = "01/01/20";
+            // Add ViewData with key value pairs
+            ViewData["myName"] = "Brian";
+            ViewData["username"] = "Frantik";
+            ViewData["myOccupation"] = "Software Engineer";
+            ViewData["myAge"] = 35;
+            ViewData["currentDate"] = "11/23/22";
+
+
+
         }
     }
 }
