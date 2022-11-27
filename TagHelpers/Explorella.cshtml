@@ -1,0 +1,34 @@
+@page
+@model MyApp.Namespace.ExplorellaModel
+@{
+}
+
+<div class="jumbotron jumbotron text-white" style="background-image: url(https://c1.staticflickr.com/1/725/20835879729_66b87b0759_b.jpg); background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;">
+	<div class="container">
+		<h2 class="text-center display-3 mb-4">Welcome to Explorella!</h1>
+	</div>
+</div>
+<h1 class="display-5">Pick your next destination!</h1>
+
+<form class="form-inline">
+  <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
+  
+  <!-- Select Tag Helper -->
+  <select class="custom-select my-1 mr-sm-2">
+    <option selected>Choose...</option>
+    <option value="AR">Argentina</option>
+    <option value="FR">France</option>
+    <option value="BR">Brazil</option>
+    <option value="GER">Germany</option>
+    <option value="CHI">China</option>
+  </select>
+
+  <div class="custom-control custom-checkbox my-1 mr-sm-2">
+    <input type="checkbox" class="custom-control-input" id="customControlInline">
+    <label class="custom-control-label" for="customControlInline">Remember my preference</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary my-1">Submit</button>
+</form>
