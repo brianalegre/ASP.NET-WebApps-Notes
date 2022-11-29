@@ -16,13 +16,17 @@
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Preference</label>
   
   <!-- Select Tag Helper -->
-  <select class="custom-select my-1 mr-sm-2">
-    <option selected>Choose...</option>
+  <!-- Add the Tag Helper with asp-for and asp-items -->
+  <select class="custom-select my-1 mr-sm-2" asp-for="Country" asp-items="Model.Countries">
+    
+    <!-- No longer needed -->
+    <!-- As we created the Tag Helper -->
+    <!-- <option selected>Choose...</option>
     <option value="AR">Argentina</option>
     <option value="FR">France</option>
     <option value="BR">Brazil</option>
     <option value="GER">Germany</option>
-    <option value="CHI">China</option>
+    <option value="CHI">China</option> -->
   </select>
 
   <div class="custom-control custom-checkbox my-1 mr-sm-2">
