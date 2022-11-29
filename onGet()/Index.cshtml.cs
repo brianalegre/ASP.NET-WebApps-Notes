@@ -23,9 +23,9 @@ namespace Blog.Pages
             RequestValues = "n/a";
 
             // Assign property values here
-            Title = new "Cuban Midnight Sandwich";
+            Title = "Cuban Midnight Sandwich";
             Date = new DateTime(2000, 3, 24);
-            Body = new "This sandwich is called a 'Media Noche' which translates to 'Midnight.'";
+            Body = "This sandwich is called a 'Media Noche' which translates to ‘Midnight.'";
         }
 
         public void OnPost()
