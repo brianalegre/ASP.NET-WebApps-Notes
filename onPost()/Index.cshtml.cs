@@ -1,39 +1,69 @@
-@page
-@model IndexModel
-@{
-  ViewData["Title"] = "Home page";
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace Blog.Pages
+{
+  public class IndexModel : PageModel
+  {
+    public string RequestMethod
+    { get; set; }
+
+    public string RequestValues
+    { get; set; }
+
+    public string Title { get; set; }
+    public DateTime Date { get; set; }
+    public string Body { get; set; }
+
+    public void OnGet()
+    {
+      // For debugging
+      RequestMethod = "GET";
+      RequestValues = "n/a";
+
+      // Assign property values here
+      Title = "Cuban Midnight Sandwich";
+      Date = new DateTime(2000, 3, 24);
+      Body = "This sandwich is called a 'Media Noche' which translates to 'Midnight.' It makes a wonderful dinner sandwich because it is served hot. A nice side dish is black bean soup or black beans and rice, and plaintain chips.";
+    }
+
+    public void OnPost(string title, DateTime date, string body)
+    {
+      // For debugging
+      RequestMethod = "POST";
+      RequestValues = GetFormValues();
+
+      // Assign property values here
+      Title = title;
+      Date = date;
+      Body = body;
+    }
+
+    // For debugging
+    private string GetFormValues(bool ignoreRequestVerificationToken = true)
+    {
+      string formData = "";
+      string separator = " | ";
+
+      foreach (var pair in this.Request.Form)
+      {
+        if (ignoreRequestVerificationToken && pair.Key == "__RequestVerificationToken")
+        {
+          continue;
+        }
+        else
+        {
+          formData += pair.Key + ": " + Request.Form[pair.Key] + separator;
+        }
+      }
+
+      if (formData.EndsWith(separator))
+      {
+        formData = formData.Substring(0, formData.Length - separator.Length);
+      }
+
+      return formData;
+    }
+  }
 }
-
-< div class= "jumbotron jumbotron-fluid" id = "chef-jumbotron" >
-  < div id = "request-info" >
-    < em > RequestMethod </ em >: @Model.RequestMethod<em> RequestInfo</em>: @Model.RequestValues
-  </ div >
-  < div id = "jumbotron-main-text" >
-    < h1 > Chef's Blog</h1>
-    < p > A place for the best recipes! </ p >
-  </ div >
-</ div >
-
-< div class= "row" >
-  < div class= "col" >
-    < h1 > Write a new post</h1>
-    < hr >
-    < !--Form start-- >
-
-
-    < !--Form end-- >
-  </ div >
-
-  < div class= "col" >
-    < h1 > Recent posts </ h1 >
-    < hr >
-    < !--Page model properties displayed here -->
-    <div class= "blog-post" >
-      < h2 class= "blog-post-title" > @Model.Title </ h2 >
-      < p class= "blog-post-meta" > Posted on @Model.Date.ToShortDateString()</ p >
-      < p > @Model.Body </ p >
-    </ div >
-  </ div >
-</ div >
-
-

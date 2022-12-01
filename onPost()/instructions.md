@@ -60,6 +60,7 @@ The place to paste is denoted with comments.
 If done correctly, submitting the form will a produce a query string with the values: Title, Date, and Body. For example:
 
 localhost:8000?Title=Example+Title&Date=2020-03-24&Body=just+some+words+here
+Checkpoint 2 Passed
 
 Stuck? Get a hint
 2.
@@ -67,9 +68,20 @@ In Index.cshtml.cs, modify the OnPost() method by adding matching method paramet
 
 They should match the name attributes used in the <form>.
 
+Checkpoint 3 Passed
 
-Stuck? Get a hint
+Hint
+public void OnPost(string title, DateTime date, string body)
 3.
 Within the method, assign each value to its corresponding property.
 
 If done correctly, you can submit the form and see your data displayed on the page.
+
+Checkpoint 4 Passed
+
+Hint
+The three properties are Title, Date, and Body.
+
+As an example, this code sets the Title property to the title parameter:
+
+Title = title;
