@@ -20,6 +20,21 @@
     <h1>Write a new post</h1>
     <hr>
     <!-- Form start -->
+    <form method="post">
+      <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" placeholder="Title">
+      </div>
+      <div class="form-group">
+        <label for="Date">Date</label>
+        <input type="date" class="form-control" id="Date" name="Date">
+      </div>
+      <div class="form-group">
+        <label for="Body">Your post</label>
+        <textarea class="form-control" id="Body" name="Body" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn" id="submit">Submit</button>
+    </form>
 
     <!-- Form end -->
   </div>
