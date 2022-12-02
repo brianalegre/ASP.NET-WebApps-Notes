@@ -10,12 +10,16 @@ namespace Blog.Pages
         public string RequestMethod
         { get; set; }
 
+        //Model Binding
+        [BindProperty]
+        public string Title { get; set; }
+        [BindProperty]
+        public string Date { get; set; }
+        [BindProperty]
+        public string Body { get; set; }
+
         public string RequestValues
         { get; set; }
-
-        public string Title { get; set; }
-        public DateTime Date { get; set; }
-        public string Body { get; set; }
 
         public void OnGet()
         {

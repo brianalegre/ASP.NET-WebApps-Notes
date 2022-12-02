@@ -24,17 +24,17 @@
       <div class="form-group">
         <label for="Title">Title</label>
         <!-- Use asp-for here -->
-        <input type="text" class="form-control" id="Title" name="Title" placeholder="Title">
+        <input type="text" class="form-control" asp-for="Title" placeholder="Title">
       </div>
       <div class="form-group">
         <label for="Date">Date</label>
         <!-- Use asp-for here -->
-        <input type="date" class="form-control" id="Date" name="Date">
+        <input type="date" class="form-control" asp-for="Date">
       </div>
       <div class="form-group">
         <label for="Body">Your post</label>
         <!-- Use asp-for here -->
-        <textarea class="form-control" id="Body" name="Body" rows="3"></textarea>
+        <textarea class="form-control" asp-for="Body" rows="3"></textarea>
       </div>
       <button type="submit" class="btn" id="submit">Submit</button>
     </form>
