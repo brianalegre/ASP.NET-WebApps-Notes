@@ -27,8 +27,7 @@
     {
       <div>
         <h3>
-          <!-- Use asp-page and asp-route-index here -->
-        <a href="/Archive">@Model.Archive[i].Title</a>
+          <a asp-page="/Archive" asp-route-index="@i">@Model.Archive[i].Title</a>
         </h3>
         <p>Posted on @Model.Archive[i].Date.ToShortDateString()</p>
       </div>

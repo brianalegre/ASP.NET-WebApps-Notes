@@ -18,9 +18,16 @@ namespace Blog.Pages
 
         public BlogPost Displayed { get; set; }
 
-        public void OnGet()
+        public void OnGet(int index)
         {
-            Displayed = Archive[0];
+            if (index >= Archive.Count || index < 0)
+            {
+                Displayed = new BlogPost("n/a", new DateTime(0001, 01, 01), "n/a");
+            }
+            else
+            {
+                Displayed = Archive[index];
+            }
         }
     }
 }
