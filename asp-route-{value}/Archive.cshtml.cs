@@ -18,6 +18,7 @@ namespace Blog.Pages
 
         public BlogPost Displayed { get; set; }
 
+        // add index
         public void OnGet(int index)
         {
             if (index >= Archive.Count || index < 0)

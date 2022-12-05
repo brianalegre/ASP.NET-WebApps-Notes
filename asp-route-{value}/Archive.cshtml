@@ -24,13 +24,19 @@
     <hr>
     @for (int i = 0; i < Model.Archive.Count; i++)
 
+
+
     {
       <div>
         <h3>
+          @* <!-- Use asp-page and asp-route-index here --> *@
+          @* Original <!-- <a href="/Archive">@Model.Archive[i].Title</a> --> *@
           <a asp-page="/Archive" asp-route-index="@i">@Model.Archive[i].Title</a>
         </h3>
         <p>Posted on @Model.Archive[i].Date.ToShortDateString()</p>
       </div>
+
+
 
     }
   </div>
