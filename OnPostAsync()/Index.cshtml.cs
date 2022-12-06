@@ -21,7 +21,9 @@ namespace Blog.Pages
         [BindProperty]
         public string Body { get; set; }
 
-        public async Task OnGet()
+        // public void OnGet()
+        // Change to async
+        public async Task OnGetAsync()
         {
             // For debugging
             RequestMethod = "GET";
@@ -39,8 +41,12 @@ namespace Blog.Pages
             }
         }
 
-        // Define OnPostAsync() here
-
+        public void OnPost()
+        {
+            // For debugging
+            RequestMethod = "POST";
+            RequestValues = GetFormValues();
+        }
 
         // For debugging
         private string GetFormValues(bool ignoreRequestVerificationToken = true)
