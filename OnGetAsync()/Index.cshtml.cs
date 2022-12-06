@@ -21,7 +21,9 @@ namespace Blog.Pages
         [BindProperty]
         public string Body { get; set; }
 
-        public void OnGet()
+        // public void OnGet()
+        // Change to async
+        public async Task OnGetAsync()
         {
             // For debugging
             RequestMethod = "GET";
