@@ -1,0 +1,68 @@
+@page "/Days/{day?}"
+@model ActivityModel
+
+<div class="row d-flex align-items-center justify-content-between mx-2" id="links-row">
+  <div class="col-1">
+  </div>
+
+  <div class="col">
+    @if (Model.IsWeeklyDisplay)
+    {
+      <a id="weekly-total-link" class="active-day day-week-links" asp-page="/Activity" asp-route-day="">Weekly Total</a>
+    }
+    else
+    {
+      <a id="weekly-total-link" class="day-week-links" asp-page="/Activity" asp-route-day="">Weekly Total</a>
+    }
+  </div>
+
+  @for (int i = 0; i < Model.Days.Count; i++)
+  {
+    <div class="col">
+      @if (!Model.IsWeeklyDisplay && i == Model.CurrentDay)
+      {
+        <a class="active-day day-week-links" asp-page="/Activity" asp-route-day=@i>Day @i</a>
+      }
+      else
+      {
+        <a class="day-week-links" asp-page="/Activity" asp-route-day=@i>Day @i</a>
+      }
+    </div>
+  }
+
+  <div class="col-1">
+  </div>
+</div>
+<div class="row">
+  <div class="col circle-col">
+    @{ 
+      var stepsData = new ProgressCirclePartialModel
+      {
+        BackgroundStroke = "#D9EFF6",
+        ForegroundStroke = "#3EAED5",
+        PercentProgress = @Model.PercentProgressSteps,
+        DisplayNumber = @Model.DisplaySteps,
+        Unit = "Steps",
+        IconUrl = "https://content.codecademy.com/courses/asp-dot-net/shoe-icon.png"
+      };
+    }
+    <partial name="_ProgressCirclePartial" model=@stepsData />
+  </div>
+</div>
+
+<div class="row">
+  <div class="col circle-col">
+    @{ 
+      var exerciseData = new ProgressCirclePartialModel
+      {
+        BackgroundStroke = "#FBD7E5",
+        ForegroundStroke = "#DA387D",
+        PercentProgress = @Model.PercentProgressMinutesExercise,
+        DisplayNumber = @Model.DisplayMinutesExercise,
+        Unit = "Mins of Exercise",
+        IconUrl = "https://content.codecademy.com/courses/asp-dot-net/weight-icon.png"
+      };
+    }
+    <partial name="_ProgressCirclePartial" model=@exerciseData />
+  </div>
+</div>
