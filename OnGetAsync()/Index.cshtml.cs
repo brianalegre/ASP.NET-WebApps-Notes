@@ -40,7 +40,17 @@ namespace Blog.Pages
         }
 
         // Define OnPostAsync() here
+        public async Task OnPostAsync()
+        {
+            // For debugging
+            RequestMethod = "POST";
+            RequestValues = "n/a";
 
+            using (StreamWriter writer = new StreamWriter("log.txt", append: true))
+            {
+                await writer.WriteLineAsync($"OnPostAsync() called at {DateTime.Now}.");
+            }
+        }
 
         // For debugging
         private string GetFormValues(bool ignoreRequestVerificationToken = true)
