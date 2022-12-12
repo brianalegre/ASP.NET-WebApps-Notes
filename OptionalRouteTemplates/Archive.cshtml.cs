@@ -26,14 +26,25 @@ namespace ActivityTracker.Pages
         public double PercentProgressMinutesExercise { get; set; }
         public bool IsWeeklyDisplay { get; set; }
 
-        // Edit this method
-        public void OnGet(int day)
+        public void OnGet(int? day)
         {
-            CurrentDay = day;
-            DisplaySteps = Days[CurrentDay].Steps;
-            DisplayMinutesExercise = Days[CurrentDay].MinutesExercise;
-            PercentProgressSteps = PercentProgress(DisplaySteps, idealSteps);
-            PercentProgressMinutesExercise = PercentProgress(DisplayMinutesExercise, idealMinutesExercise);
+            if (day.HasValue)
+            {
+                CurrentDay = day.Value;
+                DisplaySteps = Days[CurrentDay].Steps;
+                DisplayMinutesExercise = Days[CurrentDay].MinutesExercise;
+                PercentProgressSteps = PercentProgress(DisplaySteps, idealSteps);
+                PercentProgressMinutesExercise = PercentProgress(DisplayMinutesExercise, idealMinutesExercise);
+            }
+            else
+            {
+                CurrentDay = 0;
+                IsWeeklyDisplay = true;
+                DisplaySteps = Days.Sum(d => d.Steps);
+                DisplayMinutesExercise = Days.Sum(d => d.MinutesExercise);
+                PercentProgressSteps = PercentProgress(DisplaySteps, idealSteps * Days.Count);
+                PercentProgressMinutesExercise = PercentProgress(DisplayMinutesExercise, idealMinutesExercise * Days.Count);
+            }
         }
 
         private static double PercentProgress(double actual, double expected)
