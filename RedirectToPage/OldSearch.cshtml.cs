@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Zoogle.Pages
 {
-    public class OldSearchModel : PageModel
+  public class OldSearchModel : PageModel
+  {
+    public IActionResult OnGet()
     {
-        public void OnGet()
-        {
-
-        }
+      return RedirectToPage("/Search");
     }
+  }
 }
