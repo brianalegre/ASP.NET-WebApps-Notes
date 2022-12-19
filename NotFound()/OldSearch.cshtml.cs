@@ -5,15 +5,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Zoogle.Pages
 {
-    public class OldSearchModel : PageModel
+  public class OldSearchModel : PageModel
+  {
+    public void OnGet()
     {
-        public void OnGet()
-        {
-        }
-
-        public void OnPost()
-        {
-
-        }
     }
+
+    public IActionResult OnPost()
+    {
+      return NotFound(); 
+    }
+  }
 }
