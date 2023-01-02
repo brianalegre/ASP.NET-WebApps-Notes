@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using RazorCountry.Data;
 
 namespace RazorCountry
 {
@@ -28,6 +30,8 @@ namespace RazorCountry
             {
                 options.Conventions.ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
             });
+
+            services.AddDbContext<CountryContext>(options => options.UseSqlite(Configuration.GetConnectionString("CountryContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
