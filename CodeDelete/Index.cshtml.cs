@@ -23,5 +23,24 @@ namespace RazorCountry.Pages.Continents
         {
             Continents = await _context.Continents.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostAsync(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Continent Continent = await _context.Continents.FindAsync(id);
+
+            if (Continent != null)
+            {
+                _context.Continents.Remove(Continent);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
     }
 }
